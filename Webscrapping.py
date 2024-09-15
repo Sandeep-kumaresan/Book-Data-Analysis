@@ -1,3 +1,4 @@
+import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 url = "https://www.bookchor.com/category/6/fictioncomicsmangas"
@@ -15,5 +16,8 @@ bookprice = []
 price = book.find_all("span")
 for i in price[3:]:
     bookprice.append(i.text)
+
+df = pd.DataFrame({"Bookname":bookname,"bookprice":bookprice})
+print(df)
 # print(len(bookname))
 # print(len(bookprice))
