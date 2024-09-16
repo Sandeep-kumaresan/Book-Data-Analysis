@@ -15,5 +15,20 @@ plt.xlabel('Price')
 plt.ylabel('Count')
 st.pyplot(plt)
 
+top_expensive_books = df.nlargest(10, 'Price')
 
+plt.figure(figsize=(12, 8))
+sns.barplot(data=top_expensive_books, x='Price', y='Title', palette='coolwarm')
+plt.title('Top 10 Most Expensive Books in Comics and Manga')
+plt.xlabel('Price')
+plt.ylabel('Title')
+st.pyplot(plt)
+
+top_cheapest_books = df.nsmallest(10, 'Price')
+plt.figure(figsize=(11,8))
+sns.barplot(data= top_cheapest_books, x='Price',y='Title',palette='coolwarm')
+plt.title('Top 10 Most cheapest Books in Comics and Manga')
+plt.xlabel('Price')
+plt.ylabel('Title')
+st.pyplot(plt)
 
