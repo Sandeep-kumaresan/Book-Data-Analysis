@@ -1,5 +1,5 @@
 import streamlit as st
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 
@@ -14,5 +14,6 @@ plt.title('Frequency of Each Book Price')
 plt.xlabel('Price')
 plt.ylabel('Count')
 st.pyplot(plt)
+
 
 
