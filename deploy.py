@@ -7,6 +7,6 @@ st.title("Welcome to Book Data Analysis!")
 df = pd.read_csv("Comics,Manga.csv")
 st.text("Comics and Manga Prices")
 st.bar_chart(data=df, x = "Price", y = "Title", x_label="Price", y_label="Book")
-st.plotly_chart(data=df, x = "Price", y = "Title", x_label="Price", y_label="Book")
+st.line_chart(df)
 
 
