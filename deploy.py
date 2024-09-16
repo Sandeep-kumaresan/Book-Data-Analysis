@@ -5,6 +5,7 @@ import pandas as pd
 
 st.title("Welcome to Book Data Analysis!")
 df = pd.read_csv("Comics,Manga.csv")
+df['Price'] = df['Price'].replace({'₹': '', ',': ''}, regex=True).astype(float)
 st.text("Comics and Manga Prices")
 st.bar_chart(data=df, x = "Price", y = "Title", x_label="Price", y_label="Book")
 plt.figure(figsize=(8, 5))
