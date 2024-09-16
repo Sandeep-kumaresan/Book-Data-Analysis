@@ -72,7 +72,7 @@ def scrape_page(page_url, writer):
 base_url = "https://www.bookchor.com/category/6/fictioncomicsmangas?page="
 
 # CSV file setup
-csv_file = "books1.csv"
+csv_file = "Comics,Manga.csv"
 csv_columns = ["Title", "Price"]
 
 with open(csv_file, mode='w', newline='', encoding='utf-8') as file:
