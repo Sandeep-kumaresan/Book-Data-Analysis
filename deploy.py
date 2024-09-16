@@ -6,6 +6,6 @@ import pandas as pd
 st.title("Welcome to Book Data Analysis!")
 df = pd.read_csv("Comics,Manga.csv")
 st.text("Comics and Manga Prices")
-st.bar_chart(data=df, x = "Price", y = "Title", title="Comics and Manga Prices", x_label="Price", y_label="Book")
+st.bar_chart(data=df, x = "Price", y = "Title", x_label="Price", y_label="Book")
 
 
