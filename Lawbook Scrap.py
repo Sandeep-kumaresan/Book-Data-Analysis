@@ -1,6 +1,4 @@
-import pandas as pd
 from bs4 import BeautifulSoup
-import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -9,7 +7,6 @@ import time
 
 chrome_driver_path = "/home/sandeep/Downloads/chromedriver-linux64/chromedriver"
 
-# Set up Chrome options
 chrome_options = Options()
 chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument("--disable-dev-shm-usage")
@@ -19,35 +16,13 @@ chrome_options.add_argument("--start-maximized")
 chrome_options.add_argument("--disable-gpu")
 chrome_options.add_argument("--disable-infobars")
 
-# Set up the Chrome service
 service = Service(chrome_driver_path)
 
-# Create a new instance of the Chrome driver
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
-# Function to scrape a single page using BeautifulSoup
-def scrape_single_page(page_url):
-    r = requests.get(page_url)
-    soup = BeautifulSoup(r.text, "lxml")
-    books = soup.find_all("div", class_="product-listing")
-
-    bookname = []
-    bookprice = []
-
-    for book in books:
-        name_tag = book.find("h3")
-        if name_tag:
-            bookname.append(name_tag.text.strip())
-        price_tag = book.find("span")
-        if price_tag:
-            bookprice.append(price_tag.text.strip())
-
-    return pd.DataFrame({"Bookname": bookname, "bookprice": bookprice})
-
-# Function to scrape multiple pages using Selenium
 def scrape_page(page_url, writer):
     driver.get(page_url)
-    time.sleep(5)  # Wait for the page to load
+    time.sleep(5) 
 
     soup = BeautifulSoup(driver.page_source, 'html.parser')
     books = soup.find_all('div', class_='product-item-info')
@@ -67,22 +42,19 @@ def scrape_page(page_url, writer):
         writer.writerow([book_title, book_price])
         print(f"Title: {book_title}, Price: {book_price}")
 
-# Base URL
 base_url = "https://www.bookchor.com/category/29/textbookslaw?page="
 
-# CSV file setup
 csv_file = "LawBook.csv"
 csv_columns = ["Title", "Price"]
 
 with open(csv_file, mode='w', newline='', encoding='utf-8') as file:
     writer = csv.writer(file)
-    writer.writerow(csv_columns)  # Write the header
+    writer.writerow(csv_columns)  
 
-    # Loop through multiple pages
-    for page in range(1, 11):  # Change the range as per the number of pages you want to scrape
+
+    for page in range(1, 11): 
         page_url = base_url + str(page)
         print(f"Scraping page: {page_url}")
         scrape_page(page_url, writer)
 
-# Close the browser
 driver.quit()
