@@ -9,5 +9,5 @@ This project uses:
 - Pandas
 - Streamlit
 
-The Analyzed Data is available at : https://www.bookchor.com/category/6/fictioncomicsmangas
+The Analyzed Data is available at : https://capstone-project-1.streamlit.app/
 
