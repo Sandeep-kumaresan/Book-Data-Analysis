@@ -4,6 +4,8 @@ import seaborn as sns
 import pandas as pd
 
 st.title("Welcome to Book Data Analysis!")
+st.snow()
+st.text("Source:"),st.code("https://www.bookchor.com/category/6/fictioncomicsmangas")
 df = pd.read_csv("Comics,Manga.csv")
 df['Price'] = df['Price'].replace({'₹': '', ',': ''}, regex=True).astype(float)
 st.text("Comics and Manga Prices")
