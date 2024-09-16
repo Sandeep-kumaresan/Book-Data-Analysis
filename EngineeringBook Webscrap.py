@@ -1,7 +1,7 @@
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
-url = "https://www.bookchor.com/category/6/fictioncomicsmangas"
+url = "https://www.bookchor.com/category/16/nonfictionengineering"
 r = requests.get(url)
 print(r)
 soup = BeautifulSoup(r.text,"lxml")
@@ -19,5 +19,7 @@ for i in price[3:]:
 
 df = pd.DataFrame({"Bookname":bookname,"bookprice":bookprice})
 print(df)
+
+df.to_csv("Engineering.csv")
 # print(len(bookname))
 # print(len(bookprice))
