@@ -20,7 +20,7 @@ plt.figure(figsize=(8, 5))
 # plt.ylabel('Count')
 # st.pyplot(plt)
 fig = px.bar(df, x = "Price", y = "Title")
-st.pyplot(fig)
+st.plotly_chart(fig)
 
 top_expensive_books = df.nlargest(10, 'Price')
 
