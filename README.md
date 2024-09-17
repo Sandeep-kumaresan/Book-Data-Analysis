@@ -1,5 +1,5 @@
 # Book Data Analysis
-Webscrapping from Internet, Cleaning the Data, Formatting data , Calculating and Plotting valuable insights
+Webscrapping the dataset from the Internet (website), Cleaning the Data, Formatting data , Calculating and Plotting valuable insights in a Streamlit Website.
 
 This project uses:
 - BeautifulSoup
