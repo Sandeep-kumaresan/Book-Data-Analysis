@@ -2,6 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
+import plotly.express as px
 
 st.title("Welcome to Book Data Analysis!")
 st.snow()
@@ -12,12 +13,14 @@ df['Price'] = df['Price'].replace({'₹': '', ',': ''}, regex=True).astype(float
 st.text("Comics and Manga Prices")
 st.bar_chart(data=df, x = "Price", y = "Title", x_label="Price", y_label="Book")
 plt.figure(figsize=(8, 5))
-sns.countplot(data=df, x='Price', palette='viridis')
-plt.xticks(rotation=90)
-plt.title('Frequency of Each Book Price')
-plt.xlabel('Price')
-plt.ylabel('Count')
-st.pyplot(plt)
+# sns.countplot(data=df, x='Price', palette='viridis')
+# plt.xticks(rotation=90)
+# plt.title('Frequency of Each Book Price')
+# plt.xlabel('Price')
+# plt.ylabel('Count')
+# st.pyplot(plt)
+fig = px.bar(df, x = "Price", y = "Title")
+st.pyplot(fig)
 
 top_expensive_books = df.nlargest(10, 'Price')
 
