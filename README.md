@@ -1,4 +1,4 @@
-# Capstone-project-1
+# Book Data Analysis
 Webscrapping from Internet, Cleaning the Data, Formatting data , Calculating and Plotting valuable insights
 
 This project uses:
