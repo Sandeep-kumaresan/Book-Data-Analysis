@@ -38,4 +38,4 @@ plt.title('Top 10 Most cheapest Books in Comics and Manga')
 plt.xlabel('Price')
 plt.ylabel('Title')
 st.pyplot(plt)
-
+st.baloon()
