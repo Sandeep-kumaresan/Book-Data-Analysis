@@ -4,7 +4,7 @@ import seaborn as sns
 import pandas as pd
 import plotly.express as px
 
-st.title("Welcome to Book Data Analysis!!")
+st.title("Welcome to Book Data Analysis project")
 st.snow()
 st.text("Sourcefile:")
 st.code("https://www.bookchor.com/category/6/fictioncomicsmangas")
