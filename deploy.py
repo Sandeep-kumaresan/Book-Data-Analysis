@@ -6,7 +6,7 @@ import plotly.express as px
 
 st.title("Welcome to Book Data Analysis!")
 st.snow()
-st.text("Source:")
+st.text("Sourcefile:")
 st.code("https://www.bookchor.com/category/6/fictioncomicsmangas")
 df = pd.read_csv("Comics_Manga.csv")
 df['Price'] = df['Price'].replace({'₹': '', ',': ''}, regex=True).astype(float)
@@ -38,4 +38,4 @@ plt.title('Top 10 Most cheapest Books in Comics and Manga')
 plt.xlabel('Price')
 plt.ylabel('Title')
 st.pyplot(plt)
-st.balloons()
+
